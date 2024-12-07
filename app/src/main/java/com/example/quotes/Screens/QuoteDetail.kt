@@ -1,8 +1,10 @@
 package com.example.quotes.Screens
 
 
+import android.widget.ImageButton
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,6 +27,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -35,7 +38,7 @@ import com.example.quotes.R
 
 //@Preview(name = "Quote Detail", showBackground = true)
 @Composable
-fun QuoteDetail(data: Quote,onBack: () -> Unit) {
+fun QuoteDetail(data: Quote, onBack: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -64,7 +67,8 @@ fun QuoteDetail(data: Quote,onBack: () -> Unit) {
                     modifier = Modifier
                         .background(Color.Black)
                         .rotate(180f),
-                    colorFilter = ColorFilter.tint(Color.White))
+                    colorFilter = ColorFilter.tint(Color.White)
+                )
                 Spacer(modifier = Modifier.width(8.dp))
                 Column(Modifier.fillMaxWidth()) {
                     Text(
@@ -87,9 +91,13 @@ fun QuoteDetail(data: Quote,onBack: () -> Unit) {
 
             }
             Column {
-                Button(onClick = {onBack()} ) {
-                    Text(text =  "Back ->")
-                }
+                Image(
+                    painter = painterResource(id = R.drawable.back_arrow),
+                    contentDescription = "Back Event Button",
+                    Modifier
+                        .clickable(onClick = { onBack() })
+                        .align(Alignment.End)
+                )
             }
         }
 
