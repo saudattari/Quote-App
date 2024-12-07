@@ -37,11 +37,13 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.quotes.Colors.ColorRandoms
 import com.example.quotes.Model.Quote
 import com.example.quotes.R
 
 @Composable
 fun QuoteDetail(data: Quote, onBack: () -> Unit) {
+    val colo1 = ColorRandoms.ColorsRandom.random()
     val clipboardManager: ClipboardManager = LocalClipboardManager.current
     val context = LocalContext.current
     BackHandler {
@@ -73,7 +75,7 @@ fun QuoteDetail(data: Quote, onBack: () -> Unit) {
                     imageVector = Icons.Default.FormatQuote,
                     contentDescription = "",
                     modifier = Modifier
-                        .background(Color.Black)
+                        .background(colo1)
                         .rotate(180f),
                     colorFilter = ColorFilter.tint(Color.White)
                 )

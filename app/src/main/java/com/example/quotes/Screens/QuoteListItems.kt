@@ -30,12 +30,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.quotes.Colors.ColorRandoms
+import com.example.quotes.Colors.ColorRandoms.ColorsRandom
 import com.example.quotes.Model.Quote
 import com.example.quotes.R
 
 
 @Composable
 fun QuoteListItem(data: Quote, onClick: (Quote) -> Unit) {
+    val color1 = ColorsRandom.random()
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -54,7 +56,7 @@ fun QuoteListItem(data: Quote, onClick: (Quote) -> Unit) {
                 contentDescription = "Quote Icon",
                 colorFilter = ColorFilter.tint(Color.White),
                 modifier = Modifier
-                    .background(ColorRandoms.color1)
+                    .background(color1)
                     .rotate(180f),
                 alignment = Alignment.TopStart
             )
