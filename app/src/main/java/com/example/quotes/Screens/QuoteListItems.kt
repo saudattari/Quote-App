@@ -29,19 +29,19 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.quotes.Colors.ColorRandoms
 import com.example.quotes.Model.Quote
 import com.example.quotes.R
 
 
-
 @Composable
-fun QuoteListItem(data:Quote,onClick:(Quote)->Unit) {
+fun QuoteListItem(data: Quote, onClick: (Quote) -> Unit) {
     Card(
         modifier = Modifier
-            .clickable { onClick(data) }
             .fillMaxWidth()
             .height(115.dp)
-            .padding(10.dp),
+            .padding(10.dp)
+            .clickable(onClick = { onClick(data) }),
         elevation = CardDefaults.cardElevation(8.dp),
     ) {
         Row(
@@ -54,7 +54,7 @@ fun QuoteListItem(data:Quote,onClick:(Quote)->Unit) {
                 contentDescription = "Quote Icon",
                 colorFilter = ColorFilter.tint(Color.White),
                 modifier = Modifier
-                    .background(Color.Black)
+                    .background(ColorRandoms.color1)
                     .rotate(180f),
                 alignment = Alignment.TopStart
             )
@@ -75,9 +75,11 @@ fun QuoteListItem(data:Quote,onClick:(Quote)->Unit) {
                         .background(Color.Gray)
                 )
                 Spacer(modifier = Modifier.height(5.dp))
-                Text(text = data.author,
+                Text(
+                    text = data.author,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier)
+                    modifier = Modifier
+                )
             }
         }
     }
