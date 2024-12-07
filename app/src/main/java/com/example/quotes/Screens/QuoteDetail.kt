@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentCopy
@@ -40,6 +41,8 @@ import androidx.compose.ui.unit.dp
 import com.example.quotes.Colors.ColorRandoms
 import com.example.quotes.Model.Quote
 import com.example.quotes.R
+
+
 
 @Composable
 fun QuoteDetail(data: Quote, onBack: () -> Unit) {
@@ -74,7 +77,7 @@ fun QuoteDetail(data: Quote, onBack: () -> Unit) {
                     imageVector = Icons.Default.FormatQuote,
                     contentDescription = "",
                     modifier = Modifier
-                        .background(ColorRandoms.randomColor)
+                        .background(ColorRandoms.randomColor())
                         .rotate(180f),
                     colorFilter = ColorFilter.tint(Color.White)
                 )
@@ -100,26 +103,31 @@ fun QuoteDetail(data: Quote, onBack: () -> Unit) {
 
             }
             Row(
-                modifier = Modifier.fillMaxWidth().padding(0.dp,0.dp,0.dp,10.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp, 0.dp, 10.dp, 10.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
                     imageVector = Icons.Default.ContentCopy,
                     contentDescription = "Copy Text",
-                    modifier = Modifier.clickable {
-                        clipboardManager.setText(
-                            annotatedString = androidx.compose.ui.text.AnnotatedString(
-                                "*Quote:* \n"+data.text  + "\n\n*Author:*\n" + data.author
+                    modifier = Modifier
+                        .size(24.dp)
+                        .clickable {
+                            clipboardManager.setText(
+                                annotatedString = androidx.compose.ui.text.AnnotatedString(
+                                    "*Quote:* \n" + data.text + "\n\n*Author:*\n" + data.author
+                                )
                             )
-                        )
-                        Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
-                    }
+                            Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
+                        }
                 )
                 Image(
                     painter = painterResource(id = R.drawable.back_arrow),
                     contentDescription = "Back Event Button",
                     modifier = Modifier
+                        .size(24.dp)
                         .clickable(onClick = { onBack() })
                 )
 

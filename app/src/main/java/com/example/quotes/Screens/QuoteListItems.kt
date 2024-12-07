@@ -51,7 +51,7 @@ fun QuoteListItem(data: Quote, onClick: (Quote) -> Unit) {
                 contentDescription = "Quote Icon",
                 colorFilter = ColorFilter.tint(Color.White),
                 modifier = Modifier
-                    .background(ColorRandoms.randomColor)
+                    .background(ColorRandoms.randomColor())
                     .rotate(180f),
                 alignment = Alignment.TopStart
             )
