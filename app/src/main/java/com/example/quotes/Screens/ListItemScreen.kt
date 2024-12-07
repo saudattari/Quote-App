@@ -9,7 +9,7 @@ import com.example.quotes.Model.Quote
 @Composable
 fun ListItemScreen(data: Array<Quote>, onClick: (Quote) -> Unit) {
     LazyColumn(content = {
-        items(data) {
+        items(data) { it ->
             QuoteListItem(it){
                 onClick(it)
             }

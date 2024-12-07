@@ -20,9 +20,9 @@ class QuoteDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val text = intent.getStringExtra("Quote Text") ?: "No Quote Available"
-            val author = intent.getStringExtra("Quote Author")?:"Unknown"
-            QuoteDetail(data = Quote(text = text, author = author))
+//            val text = intent.getStringExtra("Quote Text") ?: "No Quote Available"
+//            val author = intent.getStringExtra("Quote Author")?:"Unknown"
+//            QuoteDetail(data = Quote(text = text, author = author))
         }
     }
 }

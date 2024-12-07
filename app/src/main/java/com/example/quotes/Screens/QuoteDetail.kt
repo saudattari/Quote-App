@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FormatQuote
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -34,7 +35,7 @@ import com.example.quotes.R
 
 //@Preview(name = "Quote Detail", showBackground = true)
 @Composable
-fun QuoteDetail(data: Quote) {
+fun QuoteDetail(data: Quote,onBack: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -84,6 +85,11 @@ fun QuoteDetail(data: Quote) {
 
                 }
 
+            }
+            Column {
+                Button(onClick = {onBack()} ) {
+                    Text(text =  "Back ->")
+                }
             }
         }
 

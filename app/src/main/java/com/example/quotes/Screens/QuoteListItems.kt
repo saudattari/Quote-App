@@ -35,10 +35,10 @@ import com.example.quotes.R
 
 
 @Composable
-fun QuoteListItem(data:Quote,onClick:()->Unit) {
+fun QuoteListItem(data:Quote,onClick:(Quote)->Unit) {
     Card(
         modifier = Modifier
-            .clickable { onClick() }
+            .clickable { onClick(data) }
             .fillMaxWidth()
             .height(115.dp)
             .padding(10.dp),

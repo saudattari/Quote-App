@@ -104,15 +104,19 @@ class MainActivity : ComponentActivity() {
 
     }
 
-    private @Composable
+    @Composable
     fun App() {
+        var currentQuote by remember { mutableStateOf<Quote?>(null) }
         val data1 = DataManager.data
-        ListItemScreen(data1) { quote ->
-            val intent = Intent(this, QuoteDetailActivity::class.java).apply {
-                putExtra("Quote Text", quote.text)
-                putExtra("Quote Author", quote.author)
+        if(currentQuote == null){
+            ListItemScreen(data1) {
+                currentQuote = it
             }
-            startActivity(intent)
+        }
+        else{
+            QuoteDetail(currentQuote!!) {
+               currentQuote = null
+            }
         }
     }
 
