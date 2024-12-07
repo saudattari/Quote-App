@@ -43,7 +43,6 @@ import com.example.quotes.R
 
 @Composable
 fun QuoteDetail(data: Quote, onBack: () -> Unit) {
-    val colo1 = ColorRandoms.ColorsRandom.random()
     val clipboardManager: ClipboardManager = LocalClipboardManager.current
     val context = LocalContext.current
     BackHandler {
@@ -75,7 +74,7 @@ fun QuoteDetail(data: Quote, onBack: () -> Unit) {
                     imageVector = Icons.Default.FormatQuote,
                     contentDescription = "",
                     modifier = Modifier
-                        .background(colo1)
+                        .background(ColorRandoms.randomColor)
                         .rotate(180f),
                     colorFilter = ColorFilter.tint(Color.White)
                 )

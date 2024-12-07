@@ -15,7 +15,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FormatQuote
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,21 +22,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.quotes.Colors.ColorRandoms
-import com.example.quotes.Colors.ColorRandoms.ColorsRandom
 import com.example.quotes.Model.Quote
 import com.example.quotes.R
 
 
 @Composable
 fun QuoteListItem(data: Quote, onClick: (Quote) -> Unit) {
-    val color1 = ColorsRandom.random()
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -56,7 +51,7 @@ fun QuoteListItem(data: Quote, onClick: (Quote) -> Unit) {
                 contentDescription = "Quote Icon",
                 colorFilter = ColorFilter.tint(Color.White),
                 modifier = Modifier
-                    .background(color1)
+                    .background(ColorRandoms.randomColor)
                     .rotate(180f),
                 alignment = Alignment.TopStart
             )
